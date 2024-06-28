@@ -402,26 +402,86 @@
           },
           "configuration": [
             {
-              "key": "ssh_key",
-              "type": "string",
-              "default_value": "__NOT_SET__",
+              "key": "appSecurityRules",
+              "required": false,
+              "default_value": "{ \n    \"name\": \"httpd-sg\",\n    \"rules\": [\n      {\n        \"name\"      : \"httpd-port-80\",\n        \"direction\" : \"inbound\",\n        \"source\"    : \"0.0.0.0/0\",\n        \"tcp\": {\n            \"port_max\" : 80,\n            \"port_min\" : 80\n        }\n      },\n      {\n        \"name\"      : \"ssh-port-22\",\n        \"direction\" : \"inbound\",\n        \"source\"    : \"0.0.0.0/0\",\n        \"tcp\" : {\n            \"port_max\" : 22,\n            \"port_min\" : 22\n        }\n      },\n      {\n        \"name\"      : \"outbound-off\",\n        \"direction\" : \"outbound\",\n        \"source\"    : \"0.0.0.0/0\"\n      },\n      { \n        \"name\"      : \"httpd-port-443\",\n        \"direction\" : \"inbound\",\n        \"source\"    : \"0.0.0.0/0\",\n        \"tcp\": {\n            \"port_max\": 443,\n            \"port_min\": 443\n        }\n      }\n    ]\n  }"
+            },
+            {
+              "key": "fp_vsi_floating_ip_address",
+              "required": false
+            },
+            {
+              "key": "ibmcloud_api_key",
               "required": true
             },
             {
-              "custom_config": {
-                "grouping": "deployment",
-                "original_grouping": "deployment",
-                "type": "multiline_secure_value"
-              },
-              "key": "ssh_private_key",
-              "required": true,
-              "type": "password"
+              "key": "image",
+              "required": false,
+              "default_value": "ibm-ubuntu-22-04-4-minimal-amd64-1"
             },
             {
               "key": "prefix",
+              "required": false
+            },
+            {
+              "key": "prerequisite_workspace_id",
               "required": true,
-              "default_value": "stackPrefix",
-              "type": "string"
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "region",
+              "required": false,
+              "default_value": "us-east"
+            },
+            {
+              "key": "resource_group_id",
+              "required": false
+            },
+            {
+              "key": "ssh_key_id",
+              "required": false
+            },
+            {
+              "key": "ssh_private_key",
+              "required": true
+            },
+            {
+              "key": "subnet_id",
+              "required": false
+            },
+            {
+              "key": "vpc_id",
+              "required": false
+            },
+            {
+              "key": "ssh_key",
+              "required": true,
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "workLoadInitScript",
+              "required": false,
+              "default_value": "#!/bin/bash\nsudo apt-get update\nsudo apt-get --yes install ansible\n"
+            },
+            {
+              "key": "vault_secrets_apikey_secret_name",
+              "required": true,
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "vault_secrets_app_name",
+              "required": true,
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "vault_secrets_ssh_key_secret_name",
+              "required": true,
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "vault_secrets_ssh_private_key_secret_name",
+              "required": true,
+              "default_value": "__NOT_SET__"
             }
           ],
           "iam_permissions": [
@@ -530,7 +590,84 @@
               }
             ]
           },
-          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_my-stack-da_0.0.1/CHANGELOG.md"
+          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_my-stack-da_0.0.1/CHANGELOG.md",
+          "outputs": [
+            {
+              "key": "fp_vsi_floating_ip_address"
+            },
+            {
+              "key": "prefix"
+            },
+            {
+              "key": "ssh-key-id"
+            },
+            {
+              "key": "ssh_private_key"
+            },
+            {
+              "key": "subnet-id"
+            },
+            {
+              "key": "vpc-id"
+            },
+            {
+              "key": "webserver_ip_address"
+            },
+            {
+              "key": "apikey"
+            },
+            {
+              "key": "ssh_key"
+            },
+            {
+              "key": "fip_vsi"
+            },
+            {
+              "key": "resource_group_data"
+            },
+            {
+              "key": "resource_group_id"
+            },
+            {
+              "key": "resource_group_name"
+            },
+            {
+              "key": "schematics_workspace_id"
+            },
+            {
+              "key": "ssh_key_data"
+            },
+            {
+              "key": "ssh_key_id"
+            },
+            {
+              "key": "ssh_key_name"
+            },
+            {
+              "key": "subnet_data"
+            },
+            {
+              "key": "vpc_data"
+            },
+            {
+              "key": "workload_subnet_id"
+            },
+            {
+              "key": "workload_subnet_name"
+            },
+            {
+              "key": "workload_vpc_id"
+            },
+            {
+              "key": "workload_vpc_name"
+            },
+            {
+              "key": "workload_vsi_fip"
+            },
+            {
+              "key": "workload_vsi_name"
+            }
+          ]
         }
       ],
       "version": "0.0.1"
