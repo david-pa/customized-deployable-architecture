@@ -402,26 +402,18 @@
           },
           "configuration": [
             {
-              "key": "ssh_key",
-              "type": "string",
-              "default_value": "__NOT_SET__",
-              "required": true
-            },
-            {
-              "custom_config": {
-                "grouping": "deployment",
-                "original_grouping": "deployment",
-                "type": "multiline_secure_value"
-              },
-              "key": "ssh_private_key",
-              "required": true,
-              "type": "password"
-            },
-            {
               "key": "prefix",
               "required": true,
-              "default_value": "stackPrefix",
-              "type": "string"
+              "default_value": "stackDemo"
+            },
+            {
+              "key": "ssh_key",
+              "required": true,
+              "default_value": "__NOT_SET__"
+            },
+            {
+              "key": "ssh_private_key",
+              "required": true
             }
           ],
           "iam_permissions": [
@@ -530,7 +522,8 @@
               }
             ]
           },
-          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/stack-error-testing/CHANGELOG.md"
+          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/stack-error-testing/CHANGELOG.md",
+          "outputs": []
         }
       ],
       "version": "0.0.1"
