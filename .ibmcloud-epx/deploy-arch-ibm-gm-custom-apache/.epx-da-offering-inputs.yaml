@@ -34,7 +34,7 @@
 
 repository:
   repositoryRemote: origin
-  branchName: stack-da-test
+  branchName: dev_deploy-arch-ibm-gm-custom-apache_0.0.1
 catalog:
   privateCatalogName: my-private-catalog
   privateCatalogDescription: Created by IBM Cloud Deployable Architecture Builder
@@ -48,7 +48,7 @@ catalog:
   offeringReleaseNotesPath: ""
   catalogId: ""
   offeringId: 3c5c837a-79db-4520-89ff-469c1a523a4e
-  devVersionId: 5df662f1-89a9-40d0-94b1-2e304c923c84.e17aa9e9-5a09-492b-adb8-a229e0aa3fcc
+  devVersionId: 5df662f1-89a9-40d0-94b1-2e304c923c84.24a0344f-da96-461f-b1da-38751cdec278
   publishedVersionId: ""
 schematics:
   schematicsWorkspaceId: ""
@@ -56,5 +56,5 @@ projects:
   projectName: test-project
   projectId: 7350bfed-0eb2-4da3-b1bd-cf8211173053
   resourceGroupId: d92c942c8a384119822aac197f9826a6
-  configId: 3997fa92-e372-4c34-87cb-35ebbd8b3e7f
+  configId: e965cf55-dd97-489e-81c7-3bab64cc6242
   configName: deploy-arch-ibm-gm-custom-apache-0-0-1-standard-project_7350bfed-0eb2-4da3-b1bd-cf8211173053-full
