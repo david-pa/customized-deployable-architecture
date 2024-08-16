@@ -1,0 +1,83 @@
+
+
+
+
+# This file provides input values used during validation of a Deployable Architecture (DA) in an IBM Cloud private catalog.
+
+# IMPORTANT: This file will be modified automatically. User-modified input and output properties will be preserved 
+# but additional user-provided comments will be lost.
+
+# The "hidden" property on inputs is used to make sure that unnecessary values are not included in the validation process.
+# If you do not want an input or output to be used during validation, set its "hidden" property to true. Hidden inputs and outputs will not be added to the ibm_catalog.json file.
+
+inputs:
+  prefix:
+    type: string
+    required: true
+    default: st1
+    type_metadata: string
+    custom_config:
+      grouping: deployment
+      original_grouping: deployment
+    hidden: false
+  ssh_key:
+    type: string
+    required: true
+    default: ssh-rsa
+      AAAAB3NzaC1yc2EAAAADAQABAAABgQCtMCRiyE9Lrs6O3vokTFFltyVue0Z2hQEN3zJZE5mbgnTE4Ogq/7Fz3wxq5v5Oy5jrO3Vt5M95dZIAz0/yLIjdD3z/eBuxVXwoQgnve1PqLa2SinyqjW6kgmZAo41Ctyx2scFY2jQ10sxQkoFtMk8np1worWsgHWLqQ2x6RvjVMLybozKrPzx4au5yzveGRKkuVEQDOYXFBdEA8R+zM86hwnHJgWddiMll7FI+8D7Ie5018QWidvyM/9Eb/bqJr4gYHowZq8t5d58LONK0l948iePVfaEzwa/ksOE3/q27XDQDPUEZKVEqQ1BABCh65ZGcYnxqR6ZToGPUsUc7B8BlLzbcc7MGPAgA5gR2kqEPgI/33oNx6HIC3pj6dC75v7kONlGwSE/ASyKWTH8x4z2eONWh6HmYk7xqsk3n+tPPD0UsJgWdy/xh0dJFcQhoyLwaiBfuxWoAKoQFvsUVQxEA/hFEMvEXPOLD1vHZUOwa5A+eSJJiyZd1JK9axEm+fMU=
+      dpadilla@Davids-MacBook-Pro-2.local
+    type_metadata: string
+    custom_config:
+      grouping: deployment
+      original_grouping: deployment
+    hidden: false
+  ssh_private_key:
+    type: password
+    required: true
+    default: |
+      <<-EOF
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      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
+      -----END OPENSSH PRIVATE KEY-----
+      EOF
+    type_metadata: password
+    custom_config:
+      grouping: deployment
+      original_grouping: deployment
+    hidden: false
+outputs: {}
