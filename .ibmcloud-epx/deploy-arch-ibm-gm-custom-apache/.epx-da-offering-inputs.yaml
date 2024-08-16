@@ -34,21 +34,21 @@
 
 repository:
   repositoryRemote: origin
-  branchName: dev_deploy-arch-ibm-gm-custom-apache_0.0.1
+  branchName: dev_deploy-arch-ibm-gm-custom-apache_0.0.3
 catalog:
   privateCatalogName: my-private-catalog
-  privateCatalogDescription: Created by IBM Cloud Deployable Architecture Builder
-  offeringTargetVersion: 0.0.1
+  privateCatalogDescription: Created by EPX VS Code Extension POC
+  offeringTargetVersion: 0.0.3
   offeringProductName: deploy-arch-ibm-gm-custom-apache
-  offeringFlavorName: standard
+  offeringFlavorName: fullstack
   offeringFlavorInstallType: fullstack
-  offeringDocsPath: ""
+  offeringDocsPath: README.md
   offeringArchDiagramPath: placeholder-arch-diagram.svg
   offeringLicensePath: ""
-  offeringReleaseNotesPath: ""
-  catalogId: ""
+  offeringReleaseNotesPath: CHANGELOG.md
+  catalogId: 5df662f1-89a9-40d0-94b1-2e304c923c84
   offeringId: 3c5c837a-79db-4520-89ff-469c1a523a4e
-  devVersionId: 5df662f1-89a9-40d0-94b1-2e304c923c84.24a0344f-da96-461f-b1da-38751cdec278
+  devVersionId: ""
   publishedVersionId: ""
 schematics:
   schematicsWorkspaceId: ""
