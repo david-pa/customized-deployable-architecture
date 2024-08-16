@@ -49,28 +49,88 @@
           },
           "configuration": [
             {
-              "key": "ssh_key",
+              "key": "ibmcloud_api_key",
               "required": true
             },
             {
-              "key": "ibmcloud_api_key",
-              "required": true,
-              "type": "password"
+              "key": "prefix",
+              "required": false,
+              "default_value": "land-zone-vsi-qs"
             },
             {
-              "key": "prefix",
+              "key": "ssh_key",
               "required": true,
-              "type": "string"
+              "default_value": "__NOT_SET__"
             }
           ],
           "outputs": [
             {
-              "description": "ID of the IBM Cloud Schematics workspace. Returns null if not ran in Schematics",
-              "key": "schematics_workspace_id"
+              "key": "fip_vsi",
+              "description": "A list of VSI with name, id, zone, and primary ipv4 address, VPC Name, and floating IP. This list only contains instances with a floating IP attached."
             },
             {
-              "description": "prefix used in this infrastructure",
-              "key": "prefix"
+              "key": "prefix",
+              "description": "Prefix used to name resources is this deployment"
+            },
+            {
+              "key": "resource_group_data",
+              "description": "All of the resource group data"
+            },
+            {
+              "key": "resource_group_id",
+              "description": "Resource group id used for deployed resources"
+            },
+            {
+              "key": "resource_group_name",
+              "description": "Resource group name used for deployed resources"
+            },
+            {
+              "key": "schematics_workspace_id",
+              "description": "ID of the IBM Cloud Schematics workspace. Returns null if not ran in Schematics"
+            },
+            {
+              "key": "ssh_key_data",
+              "description": "List of SSH key data"
+            },
+            {
+              "key": "ssh_key_id",
+              "description": "ssh key id"
+            },
+            {
+              "key": "ssh_key_name",
+              "description": "ssh key name"
+            },
+            {
+              "key": "subnet_data",
+              "description": "All of the subnet data across the vpcs created"
+            },
+            {
+              "key": "vpc_data",
+              "description": "This is the entire vpc data object for all of the VPCs created.  Includes all attributes of the VPCs"
+            },
+            {
+              "key": "workload_subnet_id",
+              "description": "workload subnet id"
+            },
+            {
+              "key": "workload_subnet_name",
+              "description": "workload subnet name"
+            },
+            {
+              "key": "workload_vpc_id",
+              "description": "The workload vpc id"
+            },
+            {
+              "key": "workload_vpc_name",
+              "description": "The workload vpc name"
+            },
+            {
+              "key": "workload_vsi_fip",
+              "description": "Floating point ip address of VSI within the workload VPC used as a Bastion/jumpbox host"
+            },
+            {
+              "key": "workload_vsi_name",
+              "description": "VSI hostname of the Bastion/jumpbox host that has an associated floating ip address"
             }
           ],
           "iam_permissions": [
@@ -162,7 +222,7 @@
       ],
       "short_description": "Customized example showing an extension and fullstack delivery of an Apache server.",
       "long_description": "This example is designed to illustrate a deployable architecture that has both an extension and a fullstack delivery option.  It is designed to be compatible with the custom deployable architecture solution also within this Demo.",
-      "offering_docs_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.2/README.md",
+      "offering_docs_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.1/README.md",
       "offering_icon_url": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAxMjAgMTM1Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2E1MjA1Njt9LmNscy0ye2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPjAxX0lOU1RBTkFfSWNvblNldDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTIsNC42NCw5LjU2LDI5LjE1QTE2LDE2LDAsMCwwLDEuNTcsNDNWOTJhMTYsMTYsMCwwLDAsOCwxMy44NEw1MiwxMzAuMzZhMTYsMTYsMCwwLDAsMTYsMGw0Mi40NS0yNC41MWExNiwxNiwwLDAsMCw4LTEzLjg0VjQzYTE2LDE2LDAsMCwwLTgtMTMuODRMNjgsNC42NEExNiwxNiwwLDAsMCw1Miw0LjY0WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTg5LjQsNDEuNTlBLjc2Ljc2LDAsMCwwLDg4LjM0LDQxYy0xNy44MSw3LjQ5LTM4LDIwLjQ1LTQ2LjgyLDQwYTEuNDQsMS40NCwwLDAsMS0xLjIxLjgzLDEuNDcsMS40NywwLDAsMS0uNjUtLjEyLDEuNCwxLjQsMCwwLDEtLjctMS44NmM5LTE5LjksMjkuMTktMzMuMTUsNDcuMjctNDFhLjY1LjY1LDAsMCwwLS4xNS0xLjIzLDMuMSwzLjEsMCwwLDAtLjU0LS4wNWMtMTUuNzgtLjQ1LTQwLjg1LDEwLjc4LTQ5LjQ1LDI2QzMyLDcwLjg1LDMyLDc4LjM3LDM2LjIyLDg1LjMzYy0uMTguNDQtLjg2LDIuNDYtMSwyLjg4TDMxLDgzLjljLS4yMS0uMjMtLjUyLDAtLjQxLjMxbDMsOC40NWMtLjUsMS41My0uNDQsMS40OS0uODYsMy4wN2ExLjQsMS40LDAsMCwwLDEsMS43MiwxLjI3LDEuMjcsMCwwLDAsLjQzLDAsMS40MSwxLjQxLDAsMCwwLDEuMjktMWMuMzMtMS4yNi40MS0xLjU3LjgtMi44bDcuMzItNC44OWMuMjUtLjE2LjE3LS41NS0uMTMtLjQ5bC01LjY0LjljLjI0LS41OS43My0yLjExLDEtMi43QzUyLDg0LjIsNjAsNzguNCw2Ni4yLDcxLjQ5QS45LjksMCwwLDAsNjUuNTEsNzBhMzcuNjYsMzcuNjYsMCwwLDAtOS4xMy45M2MtMS4yLjM0LTEuODMtLjM4LTEuNjMtMS4xMy4zOS0xLjQzLDkuNS0zLDE0LjQtMi44OGExLDEsMCwwLDAsLjgxLS4zNGMuNTctLjc1LDkuODQtMTQuMjcsMTcuNjYtMjIuMDcsMS4yNS0xLjI4LDEuODYtMi4wOCwxLjc4LTIuOSI+PC9wYXRoPjwvc3ZnPiA=",
       "module_info": {
         "works_with": []
@@ -513,18 +573,18 @@
               {
                 "diagram": {
                   "caption": "Custom Edge variation",
-                  "url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.2/placeholder-arch-diagram.svg",
+                  "url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.1/placeholder-arch-diagram.svg",
                   "metadata": []
                 },
                 "description": "A stack representation in a project."
               }
             ]
           },
-          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.2/CHANGELOG.md",
+          "release_notes_url": "https://github.com/david-pa/customized-deployable-architecture/raw/dev_deploy-arch-ibm-gm-custom-apache_0.0.1/CHANGELOG.md",
           "outputs": []
         }
       ],
-      "version": "0.0.2"
+      "version": "0.0.1"
     }
   ]
 }
