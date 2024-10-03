@@ -397,17 +397,16 @@
             {
               "key": "prefix",
               "required": true,
-              "default_value": "st1"
+              "default_value": "stackDemo"
             },
             {
               "key": "ssh_key",
               "required": true,
-              "default_value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCtMCRiyE9Lrs6O3vokTFFltyVue0Z2hQEN3zJZE5mbgnTE4Ogq/7Fz3wxq5v5Oy5jrO3Vt5M95dZIAz0/yLIjdD3z/eBuxVXwoQgnve1PqLa2SinyqjW6kgmZAo41Ctyx2scFY2jQ10sxQkoFtMk8np1worWsgHWLqQ2x6RvjVMLybozKrPzx4au5yzveGRKkuVEQDOYXFBdEA8R+zM86hwnHJgWddiMll7FI+8D7Ie5018QWidvyM/9Eb/bqJr4gYHowZq8t5d58LONK0l948iePVfaEzwa/ksOE3/q27XDQDPUEZKVEqQ1BABCh65ZGcYnxqR6ZToGPUsUc7B8BlLzbcc7MGPAgA5gR2kqEPgI/33oNx6HIC3pj6dC75v7kONlGwSE/ASyKWTH8x4z2eONWh6HmYk7xqsk3n+tPPD0UsJgWdy/xh0dJFcQhoyLwaiBfuxWoAKoQFvsUVQxEA/hFEMvEXPOLD1vHZUOwa5A+eSJJiyZd1JK9axEm+fMU= dpadilla@Davids-MacBook-Pro-2.local"
+              "default_value": "__NOT_SET__"
             },
             {
               "key": "ssh_private_key",
-              "required": true,
-              "default_value": "<<-EOF\n-----BEGIN OPENSSH PRIVATE KEY-----\n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\n-----END OPENSSH PRIVATE KEY-----\nEOF\n"
+              "required": true
             }
           ],
           "iam_permissions": [
